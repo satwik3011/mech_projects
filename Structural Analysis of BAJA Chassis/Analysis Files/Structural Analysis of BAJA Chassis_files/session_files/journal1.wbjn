@@ -1,0 +1,206 @@
+﻿# encoding: utf-8
+# Release 18.1
+SetScriptVersion(Version="18.1.463")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/satwi/Desktop/Satwik/ANSYS/Final Chassis 2020.x_t")
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Edit(IsSpaceClaimGeometry=True)
+geometry1.Exit()
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+material1 = engineeringData1.GetMaterial(Name="Structural Steel")
+matl1 = material1.Duplicate(TargetContainer=engineeringData1)
+matl1.DisplayName = "Structural Steel Alloy"
+matlProp1 = matl1.GetProperty(Name="Density")
+matlProp1.SetVariableProperty(
+    VariableName="Density",
+    Property="Unit",
+    Value="tonne mm^-3")
+matlProp1.SetData(
+    Variables=["Density"],
+    Values=[["7.85E-09 [tonne mm^-3]"]])
+matlProp1.SetData(
+    Variables=["Density"],
+    Values=[["7.82E-09 [tonne mm^-3]"]])
+matlProp2 = matl1.GetProperty(Name="Elasticity")
+matlProp2.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="MPa")
+matlProp2.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["200000 [MPa]"]])
+matlProp2.SetData(
+    Variables=["Young's Modulus"],
+    Values=[["205000 [MPa]"]])
+matlProp3 = matl1.GetProperty(Name="Tensile Yield Strength")
+matlProp3.SetVariableProperty(
+    VariableName="Tensile Yield Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp3.SetData(
+    Variables=["Tensile Yield Strength"],
+    Values=[["250 [MPa]"]])
+matlProp4 = matl1.GetProperty(Name="Compressive Yield Strength")
+matlProp4.SetVariableProperty(
+    VariableName="Compressive Yield Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp4.SetData(
+    Variables=["Compressive Yield Strength"],
+    Values=[["250 [MPa]"]])
+matlProp5 = matl1.GetProperty(Name="Tensile Ultimate Strength")
+matlProp5.SetVariableProperty(
+    VariableName="Tensile Ultimate Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp5.SetData(
+    Variables=["Tensile Ultimate Strength"],
+    Values=[["460 [MPa]"]])
+matlProp6 = matl1.GetProperty(Name="Compressive Ultimate Strength")
+matlProp6.SetVariableProperty(
+    VariableName="Compressive Ultimate Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp6.SetData(
+    Variables=["Compressive Ultimate Strength"],
+    Values=[["0 [MPa]"]])
+matlProp3.SetData(
+    Variables=["Tensile Yield Strength"],
+    Values=[["540 [MPa]"]])
+matlProp5.SetData(
+    Variables=["Tensile Ultimate Strength"],
+    Values=[["750 [MPa]"]])
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+system2 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system1)
+geometryComponent1 = system2.GetComponent(Name="Geometry")
+geometryComponent2 = system1.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system2,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system1)
+engineeringDataComponent1 = system2.GetComponent(Name="Engineering Data")
+engineeringDataComponent2 = system1.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.ReplaceWithShare(
+    TargetSystem=system2,
+    ComponentToShare=engineeringDataComponent2,
+    SourceSystem=system1)
+model1.Exit()
+modelComponent2 = system2.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system2.GetContainer(ComponentName="Model")
+model2.Edit()
+system2.DisplayText = "Side Impact"
+system1.DisplayText = "Front Impact"
+system3 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system2)
+system3.DisplayText = "Rear Impact"
+engineeringDataComponent3 = system3.GetComponent(Name="Engineering Data")
+engineeringDataComponent3.ReplaceWithShare(
+    TargetSystem=system3,
+    ComponentToShare=engineeringDataComponent1,
+    SourceSystem=system2)
+geometryComponent3 = system3.GetComponent(Name="Geometry")
+geometryComponent3.ReplaceWithShare(
+    TargetSystem=system3,
+    ComponentToShare=geometryComponent1,
+    SourceSystem=system2)
+model2.Exit()
+system4 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system3)
+system4.DisplayText = "Roll Over"
+engineeringDataComponent4 = system4.GetComponent(Name="Engineering Data")
+engineeringDataComponent4.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=engineeringDataComponent3,
+    SourceSystem=system3)
+geometryComponent4 = system4.GetComponent(Name="Geometry")
+geometryComponent4.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=geometryComponent3,
+    SourceSystem=system3)
+modelComponent3 = system4.GetComponent(Name="Model")
+modelComponent3.Refresh()
+model3 = system4.GetContainer(ComponentName="Model")
+model3.Edit()
+modelComponent4 = system3.GetComponent(Name="Model")
+modelComponent4.Refresh()
+model3.Exit()
+model4 = system3.GetContainer(ComponentName="Model")
+model4.Edit()
+model4.Exit()
+system5 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system4)
+engineeringDataComponent5 = system5.GetComponent(Name="Engineering Data")
+engineeringDataComponent5.ReplaceWithShare(
+    TargetSystem=system5,
+    ComponentToShare=engineeringDataComponent4,
+    SourceSystem=system4)
+geometryComponent5 = system5.GetComponent(Name="Geometry")
+geometryComponent5.ReplaceWithShare(
+    TargetSystem=system5,
+    ComponentToShare=geometryComponent4,
+    SourceSystem=system4)
+modelComponent5 = system5.GetComponent(Name="Model")
+modelComponent5.Refresh()
+model5 = system5.GetContainer(ComponentName="Model")
+model5.Edit()
+model5.Exit()
+system5.DisplayText = "Torsion"
+system6 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system5)
+engineeringDataComponent6 = system6.GetComponent(Name="Engineering Data")
+engineeringDataComponent6.ReplaceWithShare(
+    TargetSystem=system6,
+    ComponentToShare=engineeringDataComponent5,
+    SourceSystem=system5)
+geometryComponent6 = system6.GetComponent(Name="Geometry")
+geometryComponent6.ReplaceWithShare(
+    TargetSystem=system6,
+    ComponentToShare=geometryComponent5,
+    SourceSystem=system5)
+system6.DisplayText = "Frontal Bump"
+modelComponent6 = system6.GetComponent(Name="Model")
+modelComponent6.Refresh()
+model6 = system6.GetContainer(ComponentName="Model")
+model6.Edit()
+model6.Exit()
+template2 = GetTemplate(
+    TemplateName="Modal",
+    Solver="ANSYS")
+system7 = template2.CreateSystem(
+    Position="Below",
+    RelativeTo=system2)
+system7.Delete()
+system8 = template2.CreateSystem(
+    Position="Below",
+    RelativeTo=system1)
+engineeringDataComponent7 = system8.GetComponent(Name="Engineering Data")
+engineeringDataComponent7.ReplaceWithShare(
+    TargetSystem=system8,
+    ComponentToShare=engineeringDataComponent2,
+    SourceSystem=system1)
+geometryComponent7 = system8.GetComponent(Name="Geometry")
+geometryComponent7.ReplaceWithShare(
+    TargetSystem=system8,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system1)
+modelComponent7 = system8.GetComponent(Name="Model")
+modelComponent7.Refresh()
+model7 = system8.GetContainer(ComponentName="Model")
+model7.Edit()
+model7.Exit()
+Save(Overwrite=True)
