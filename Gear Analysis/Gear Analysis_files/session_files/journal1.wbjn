@@ -1,0 +1,49 @@
+﻿# encoding: utf-8
+# Release 18.1
+SetScriptVersion(Version="18.1.463")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+system1.Delete()
+template2 = GetTemplate(
+    TemplateName="Transient Structural",
+    Solver="ANSYS")
+system2 = template2.CreateSystem()
+geometry1 = system2.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/satwi/Desktop/Satwik/ANSYS/Spur Gears.x_t")
+modelComponent1 = system2.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system2.GetContainer(ComponentName="Model")
+model1.Edit()
+model1.Exit()
+system2.Delete()
+system3 = template1.CreateSystem()
+geometry2 = system3.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/satwi/Desktop/Satwik/ANSYS/Spur Gears.x_t")
+modelComponent2 = system3.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system3.GetContainer(ComponentName="Model")
+model2.Edit()
+model2.Exit()
+system4 = template2.CreateSystem(
+    Position="Right",
+    RelativeTo=system3)
+geometryComponent1 = system4.GetComponent(Name="Geometry")
+geometryComponent2 = system3.GetComponent(Name="Geometry")
+geometryComponent1.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=geometryComponent2,
+    SourceSystem=system3)
+engineeringDataComponent1 = system4.GetComponent(Name="Engineering Data")
+engineeringDataComponent2 = system3.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=engineeringDataComponent2,
+    SourceSystem=system3)
+modelComponent3 = system4.GetComponent(Name="Model")
+modelComponent3.Refresh()
+model3 = system4.GetContainer(ComponentName="Model")
+model3.Edit()
+model3.Exit()
+Save(Overwrite=True)

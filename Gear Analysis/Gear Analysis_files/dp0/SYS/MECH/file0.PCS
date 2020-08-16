@@ -1,0 +1,68 @@
+******************************************************************************
+(C) Copyright 1992-2004
+Computational Applications and System Integration Inc.
+All rights Reserved.
+******************************************************************************
+
+Job:file0	at:Wed Jul 22 21:51:14 2020
+
+
+	Number of cores used (Distributed Memory Parallel): 2
+	Degrees of Freedom: 116961
+	DOF Constraints: 2582
+	Elements: 7911
+		Assembled: 385
+		Implicit: 7526
+	Nodes: 38985
+	Number of Load Cases: 1
+
+	Nonzeros in Upper Triangular part of
+	             Global Stiffness Matrix : 162816
+	Nonzeros in Preconditioner: 4152175
+		*** Precond Reorder: MLD ***
+		Nonzeros in V: 350088
+		Nonzeros in factor: 3568147
+		Equations in factor: 14013
+	*** Level of Difficulty: 2   (internal 0) ***
+
+	Total Operation Count: 1.9679e+010
+	Total Iterations In PCG: 223
+	Average Iterations Per Load Case:  223.0
+	Input PCG Error Tolerance: 1e-008
+	Achieved PCG Error Tolerance: 8.98661e-009
+
+
+	DETAILS OF PCG SOLVER SETUP TIME(secs)        Cpu        Wall
+	     Gather Finite Element Data              0.00        0.08
+	     Element Matrix Assembly                 0.59        0.68
+
+	DETAILS OF PCG SOLVER SOLUTION TIME(secs)     Cpu        Wall
+	     Preconditioner Construction             0.05        0.05
+	     Preconditioner Factoring                0.23        0.82
+	     Apply Boundary Conditions               0.00        0.02
+	     Preconditioned CG Iterations            3.06        3.21
+	          Multiply With A                    1.86        1.73
+	               Multiply With A22             1.83        1.68
+	          Solve With Precond                 1.03        1.18
+	               Solve With Bd                 0.06        0.09
+	               Multiply With V               0.16        0.19
+	               Communication Overhead        0.00        0.03
+	               Direct Solve                  0.81        0.85
+******************************************************************************
+	     TOTAL PCG SOLVER SOLUTION CP TIME      =       3.34 secs
+	     TOTAL PCG SOLVER SOLUTION ELAPSED TIME =       4.12 secs
+******************************************************************************
+	Total Memory Usage at CG         :    1245.84 MB
+	PCG Memory Usage at CG           :      71.68 MB
+	Memory Usage for MSAVE Data      :       6.00 MB
+	*** Memory Saving Mode Activated : Jacobians Precomputed ***
+	*** I/O Reduction Mode Activated ***
+******************************************************************************
+	Multiply with A MFLOP Rate       :    8196.54 MFlops
+	Solve With Precond MFLOP Rate    :    3284.75 MFlops
+	Precond Factoring MFLOP Rate     :    1666.79 MFlops
+******************************************************************************
+	Total amount of I/O read         :       0.00 MB
+	Total amount of I/O written      :       0.00 MB
+******************************************************************************
+

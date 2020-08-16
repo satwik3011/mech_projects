@@ -1,0 +1,80 @@
+******************************************************************************
+(C) Copyright 1992-2004
+Computational Applications and System Integration Inc.
+All rights Reserved.
+******************************************************************************
+
+Job:file0	at:Thu Jul 23 01:06:02 2020
+
+
+	Number of cores used (Distributed Memory Parallel): 2
+	Degrees of Freedom: 116961
+	DOF Constraints: 1334
+	Elements: 12827
+		Assembled: 12827
+		Implicit: 0
+	Nodes: 38985
+	Number of Load Cases: 1
+
+	Nonzeros in Upper Triangular part of
+	             Global Stiffness Matrix : 9152484
+	Nonzeros in Preconditioner: 4361270
+		*** Precond Reorder: MLD ***
+		Nonzeros in V: 700947
+		Nonzeros in factor: 3426383
+		Equations in factor: 13258
+	*** Level of Difficulty: 2   (internal 0) ***
+
+	Total Operation Count: 7.98071e+009
+	Total Iterations In PCG: 121
+	Average Iterations Per Load Case:  121.0
+	Input PCG Error Tolerance: 1e-008
+	Achieved PCG Error Tolerance: 9.1086e-009
+
+
+	DETAILS OF PCG SOLVER SETUP TIME(secs)        Cpu        Wall
+	     Gather Finite Element Data              0.02        0.03
+	     Element Matrix Assembly                 0.52        0.64
+
+	DETAILS OF PCG SOLVER SOLUTION TIME(secs)     Cpu        Wall
+	     Preconditioner Construction             0.03        0.04
+	     Preconditioner Factoring                0.13        0.15
+	     Apply Boundary Conditions               0.06        0.07
+	     Preconditioned CG Iterations            1.95        1.99
+	          Multiply With A                    0.94        1.26
+	               Multiply With A22             0.86        1.20
+	          Solve With Precond                 0.89        0.58
+	               Solve With Bd                 0.09        0.06
+	               Multiply With V               0.19        0.14
+	               Communication Overhead        0.00        0.01
+	               Direct Solve                  0.59        0.35
+******************************************************************************
+	     TOTAL PCG SOLVER SOLUTION CP TIME      =       2.17 secs
+	     TOTAL PCG SOLVER SOLUTION ELAPSED TIME =       2.24 secs
+******************************************************************************
+	Total Memory Usage at CG         :    1375.23 MB
+	PCG Memory Usage at CG           :     163.57 MB
+	Memory Usage for Matrix          :     101.87 MB
+	*** I/O Reduction Mode Activated ***
+******************************************************************************
+	Multiply with A Memory Bandwidth :      32.61 GB/s
+	Multiply with A MFLOP Rate       :    3501.10 MFlops
+	Solve With Precond MFLOP Rate    :    3772.54 MFlops
+	Precond Factoring MFLOP Rate     :    8152.90 MFlops
+******************************************************************************
+	Total amount of I/O read         :       0.00 MB
+	Total amount of I/O written      :       0.00 MB
+******************************************************************************
+
+Thu Jul 23 01:06:08    LS: 1  SS: 1  EqIter: 2    Total PCG Iters:   156   LOD = 2 (0)  
+Thu Jul 23 01:06:15    LS: 1  SS: 1  EqIter: 3    Total PCG Iters:   177   LOD = 2 (0)  
+Thu Jul 23 01:06:21    LS: 1  SS: 1  EqIter: 4    Total PCG Iters:   171   LOD = 2 (0)  
+Thu Jul 23 01:06:29    LS: 1  SS: 1  EqIter: 5    Total PCG Iters:   172   LOD = 2 (0)  
+Thu Jul 23 01:06:36    LS: 1  SS: 1  EqIter: 6    Total PCG Iters:   176   LOD = 2 (0)  
+Thu Jul 23 01:06:42    LS: 1  SS: 1  EqIter: 7    Total PCG Iters:   165   LOD = 2 (0)  
+Thu Jul 23 01:06:48    LS: 1  SS: 1  EqIter: 8    Total PCG Iters:   174   LOD = 2 (0)  
+Thu Jul 23 01:06:55    LS: 1  SS: 1  EqIter: 9    Total PCG Iters:   174   LOD = 2 (0)  
+Thu Jul 23 01:07:01    LS: 1  SS: 1  EqIter: 10    Total PCG Iters:   179   LOD = 2 (0)  
+Thu Jul 23 01:07:08    LS: 1  SS: 1  EqIter: 11    Total PCG Iters:   175   LOD = 2 (0)  
+Thu Jul 23 01:07:14    LS: 1  SS: 1  EqIter: 12    Total PCG Iters:   170   LOD = 2 (0)  
+Thu Jul 23 01:07:18    LS: 1  SS: 1  EqIter: 12    Total PCG Iters:     0   LOD = 2 (0)  

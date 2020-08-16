@@ -1,0 +1,10 @@
+/COM,ANSYS RELEASE Release 18.1      BUILD 18.1      UP20170403       21:51:01
+
+ *** WARNING ***                         CP =       2.078   TIME= 21:51:04
+ Using 1 iteration per substep may result in unconverged solutions for   
+ nonlinear analysis and the program may not indicate divergence in this  
+ case.  Check your results.                                              
+
+ *** WARNING ***                         CP =       2.281   TIME= 21:51:05
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
